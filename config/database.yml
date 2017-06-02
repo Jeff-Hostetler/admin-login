@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 2
+  database: <%= ENV["DB_NAME"] || "admin_development" %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  database: admin_test
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>

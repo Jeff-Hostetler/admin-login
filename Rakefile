@@ -1,0 +1,5 @@
+require "sinatra/activerecord/rake"
+require "sinatra"
+require "active_record"
+require "sinatra/activerecord"
+require "./app"
