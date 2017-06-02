@@ -1,10 +1,12 @@
+require "jwt"
+
 class JwtAuth
   #Rack middleware setup
-  def initialize app
+  def initialize(app)
     @app = app
   end
 
-  def call env
+  def call(env)
     begin
       bearer = env.fetch("HTTP_AUTHORIZATION", "").slice(7..-1)
       payload, header = JWT.decode(bearer, ENV["JWT_SECRET"], true)
